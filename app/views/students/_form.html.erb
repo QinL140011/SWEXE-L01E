@@ -1,0 +1,31 @@
+<%= form_with(model: student) do |form| %>
+  <% if student.errors.any? %>
+    <div style="color: red;">
+      <h3><%= student.errors.count %>件のエラーがあります:</h3>
+      <ul>
+        <% student.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, "学生名" %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :student_number, "学生番号" %><br>
+    <%= form.text_field :student_number %>
+  </div>
+
+  <div>
+    <%= form.label :course, "所属コース" %><br>
+    <%= form.text_field :course %>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <%= form.submit %>
+  </div>
+<% end %>

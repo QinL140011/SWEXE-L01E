@@ -1,0 +1,8 @@
+<h1>学生詳細</h1>
+
+<p><strong>学生名:</strong> <%= @student.name %></p>
+<p><strong>学生番号:</strong> <%= @student.student_number %></p>
+<p><strong>所属コース:</strong> <%= @student.course %></p>
+
+<%= link_to "編集", edit_student_path(@student) %> |
+<%= link_to "一覧に戻る", students_path %>
