@@ -1,8 +1,21 @@
 <h1>学生詳細</h1>
 
-<p><strong>学生名:</strong> <%= @student.name %></p>
-<p><strong>学生番号:</strong> <%= @student.student_number %></p>
-<p><strong>所属コース:</strong> <%= @student.course %></p>
+<div style="background: #fff; border-radius: 8px; padding: 24px; max-width: 560px; margin-bottom: 16px;">
+  <p style="border-bottom: 1px solid #eee; padding-bottom: 10px;">
+    <strong style="display: inline-block; width: 110px; color: #777;">学生名</strong>
+    <%= @student.name %>
+  </p>
+  <p style="border-bottom: 1px solid #eee; padding-bottom: 10px;">
+    <strong style="display: inline-block; width: 110px; color: #777;">学生番号</strong>
+    <%= @student.student_number %>
+  </p>
+  <p>
+    <strong style="display: inline-block; width: 110px; color: #777;">所属コース</strong>
+    <%= @student.course.presence || "—" %>
+  </p>
+</div>
 
-<%= link_to "編集", edit_student_path(@student) %> |
-<%= link_to "一覧に戻る", students_path %>
+<div>
+  <%= link_to "編集", edit_student_path(@student) %> |
+  <%= link_to "一覧に戻る", students_path %>
+</div>
