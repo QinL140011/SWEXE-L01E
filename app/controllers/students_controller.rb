@@ -17,6 +17,7 @@ class StudentsController < ApplicationController
     if @student.save
       redirect_to @student, notice: "学生を登録しました。"
     else
+      flash.now[:alert] = "入力内容にエラーがあります。"
       render :new, status: :unprocessable_entity
     end
   end
@@ -28,6 +29,7 @@ class StudentsController < ApplicationController
     if @student.update(student_params)
       redirect_to @student, notice: "学生情報を更新しました。"
     else
+      flash.now[:alert] = "入力内容にエラーがあります。"
       render :edit, status: :unprocessable_entity
     end
   end
