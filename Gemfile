@@ -66,3 +66,5 @@ group :test do
 end
 
 gem "json", "< 3"
+gem "sqlite3", ">= 2.1", group: :development
+gem "pg", group: :production
