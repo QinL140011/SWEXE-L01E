@@ -1,0 +1,23 @@
+<aside class="sidebar">
+
+  <h2 class="sidebar__title">メニュー</h2>
+  <ul class="sidebar__list">
+    <li>
+      <%= link_to "学生一覧", students_path,
+            class: "sidebar__link #{'sidebar__link--active' if current_page?(students_path)}" %>
+    </li>
+    <li>
+      <%= link_to "新規登録", new_student_path,
+            class: "sidebar__link #{'sidebar__link--active' if current_page?(new_student_path)}" %>
+    </li>
+  </ul>
+
+  <% if defined?(@students) && @students.respond_to?(:count) %>
+    <h2 class="sidebar__title" style="margin-top: 24px;">統計</h2>
+    <div class="sidebar__stat">
+      <span>登録学生数</span>
+      <span class="sidebar__stat-value"><%= @students.count %></span>
+    </div>
+  <% end %>
+
+</aside>
