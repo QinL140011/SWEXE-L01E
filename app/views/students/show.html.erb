@@ -1,16 +1,20 @@
+<div class="breadcrumb">
+  <%= link_to "学生一覧", students_path %> &gt; <%= @student.name %>
+</div>
+
 <h1>学生詳細</h1>
 
-<div style="background: #fff; border-radius: 8px; padding: 24px; max-width: 560px; margin-bottom: 16px;">
-  <p style="border-bottom: 1px solid #eee; padding-bottom: 10px;">
-    <strong style="display: inline-block; width: 110px; color: #777;">学生名</strong>
+<div class="card card--spaced">
+  <p class="detail-row">
+    <strong class="detail-row__label">学生名</strong>
     <%= @student.name %>
   </p>
-  <p style="border-bottom: 1px solid #eee; padding-bottom: 10px;">
-    <strong style="display: inline-block; width: 110px; color: #777;">学生番号</strong>
+  <p class="detail-row">
+    <strong class="detail-row__label">学生番号</strong>
     <%= @student.student_number %>
   </p>
-  <p>
-    <strong style="display: inline-block; width: 110px; color: #777;">所属コース</strong>
+  <p class="detail-row">
+    <strong class="detail-row__label">所属コース</strong>
     <%= @student.course.presence || "—" %>
   </p>
 </div>

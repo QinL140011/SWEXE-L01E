@@ -1,17 +1,14 @@
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-  <h1 style="margin: 0;">学生一覧</h1>
-  <%= link_to "＋ 新規登録", new_student_path,
-        style: "background: #3498db; color: #fff; padding: 8px 16px;
-                border-radius: 6px; text-decoration: none; font-size: 14px;" %>
+<div class="page-header">
+  <h1 class="page-header__title">学生一覧</h1>
+  <%= link_to "＋ 新規登録", new_student_path, class: "btn btn--primary btn--small" %>
 </div>
 
 <% if @students.empty? %>
-  <p style="color: #888;">学生がまだ登録されていません。</p>
+  <p class="empty-message">学生がまだ登録されていません。</p>
 <% else %>
-  <table border="1" cellpadding="10" cellspacing="0"
-         style="border-collapse: collapse; width: 100%; background: #fff;">
+  <table class="students-table">
     <thead>
-      <tr style="background: #34495e; color: #fff;">
+      <tr>
         <th>学生名</th>
         <th>学生番号</th>
         <th>所属コース</th>
@@ -29,7 +26,7 @@
             <%= link_to "編集", edit_student_path(student) %> |
             <%= link_to "削除", student,
                   data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" },
-                  style: "color: #c0392b;" %>
+                  class: "link--danger" %>
           </td>
         </tr>
       <% end %>

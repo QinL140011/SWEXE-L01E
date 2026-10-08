@@ -1,10 +1,9 @@
 <%= form_with(model: student) do |form| %>
 
   <% if student.errors.any? %>
-    <div style="background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;
-                border-radius: 6px; padding: 12px 16px; margin-bottom: 20px;">
+    <div class="form-error-box">
       <strong><%= student.errors.count %>件のエラーがあります:</strong>
-      <ul style="margin: 8px 0 0; padding-left: 20px;">
+      <ul class="form-error-box__list">
         <% student.errors.each do |error| %>
           <li><%= error.message %></li>
         <% end %>
@@ -12,39 +11,34 @@
     </div>
   <% end %>
 
-  <div style="margin-bottom: 16px;">
-    <%= form.label :name, "学生名", style: "font-weight: bold; display: block; margin-bottom: 4px;" %>
-    <%= form.text_field :name, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
+  <div class="form-field">
+    <%= form.label :name, "学生名", class: "form-field__label" %>
+    <%= form.text_field :name, class: "form-field__input" %>
     <% student.errors[:name].each do |msg| %>
-      <span style="color: #e74c3c; font-size: 13px;"><%= msg %></span><br>
+      <span class="form-field__error"><%= msg %></span><br>
     <% end %>
   </div>
 
-  <div style="margin-bottom: 16px;">
-    <%= form.label :student_number, "学生番号", style: "font-weight: bold; display: block; margin-bottom: 4px;" %>
+  <div class="form-field">
+    <%= form.label :student_number, "学生番号", class: "form-field__label" %>
     <%= form.text_field :student_number,
           placeholder: "10桁の数字",
-          style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
+          class: "form-field__input" %>
     <% student.errors[:student_number].each do |msg| %>
-      <span style="color: #e74c3c; font-size: 13px;"><%= msg %></span><br>
+      <span class="form-field__error"><%= msg %></span><br>
     <% end %>
   </div>
 
-  <div style="margin-bottom: 16px;">
-    <%= form.label :course, "所属コース（任意）", style: "font-weight: bold; display: block; margin-bottom: 4px;" %>
+  <div class="form-field">
+    <%= form.label :course, "所属コース（任意）", class: "form-field__label" %>
     <%= form.text_field :course,
           placeholder: "未入力でも可",
-          style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
+          class: "form-field__input" %>
   </div>
 
-  <div style="margin-top: 24px;">
+  <div class="form-actions">
     <%= form.submit (student.new_record? ? "登録する" : "更新する"),
-        style: "background: #3498db; color: #fff; border: none;
-          padding: 10px 20px; border-radius: 6px; cursor: pointer;" %>
-    <%= link_to "キャンセル", students_path,
-        style: "margin-left: 12px; display: inline-block;
-            padding: 10px 20px; border-radius: 6px;
-            background: #ecf0f1; color: #333; text-decoration: none;
-            font-size: 14px;" %>
+        class: "btn btn--primary" %>
+    <%= link_to "キャンセル", students_path, class: "btn btn--secondary btn--cancel" %>
   </div>
 <% end %>
